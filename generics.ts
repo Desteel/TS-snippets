@@ -8,5 +8,5 @@ import { BaseObject } from "./helpers";
 export type KeyingObject<T extends BaseObject> = {
   [K in keyof T]: T[K] extends BaseObject ? KeyingObject<T[K]> : T[K];
 } & {
-  [key: string]: T[keyof T];
+  [key: string]: T[keyof T] | undefined;
 };
